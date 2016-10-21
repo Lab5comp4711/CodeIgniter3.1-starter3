@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `categories`
 --
 
-CREATE TABLE `categories` (
+CREATE TABLE `Categories` (
   `id` varchar(1) NOT NULL,
   `name` varchar(64) NOT NULL,
   `description` text NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `description`, `image`) VALUES
+INSERT INTO `Categories` (`id`, `name`, `description`, `image`) VALUES
 ('d', 'Drinks', 'Purees made from the finest of Venusian insects, government-inspected.', 'catd.png'),
 ('m', 'Mains', 'Made from only the finest ingredients found deep in the Martian jungle, and harvested or slaughtered by academy-trained druids, we bring you 45 day aged premium "meat".', 'catm.png'),
 ('s', 'Sides', 'Perfect accompaniments to our mains, these side dish pairings have been exclsisvely formulated by Ben & Jerry.', 'cats.png');
@@ -48,7 +48,7 @@ INSERT INTO `categories` (`id`, `name`, `description`, `image`) VALUES
 -- Table structure for table `menu`
 --
 
-CREATE TABLE `menu` (
+CREATE TABLE `Menu` (
   `id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
   `description` varchar(256) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE `menu` (
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `name`, `description`, `price`, `picture`, `category`) VALUES
+INSERT INTO `Menu` (`id`, `name`, `description`, `price`, `picture`, `category`) VALUES
 (1, 'Cheese', 'Leave this raw milk, beefy and sweet cheese out for an hour before serving and pair with pear jam.', '2.95', '1.png', 's'),
 (2, 'Turkey', 'Roasted, succulent, stuffed, lovingly sliced turkey breast', '5.95', '2.png', 'm'),
 (6, 'Donut', 'Disgustingly sweet, topped with artery clogging chocolate and then sprinkled with Pixie dust', '1.25', '6.png', 's'),
@@ -105,13 +105,13 @@ CREATE TABLE `orders` (
 --
 -- Indexes for table `categories`
 --
-ALTER TABLE `categories`
+ALTER TABLE `Categories`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `menu`
 --
-ALTER TABLE `menu`
+ALTER TABLE `Menu`
   ADD PRIMARY KEY (`id`);
 
 --
