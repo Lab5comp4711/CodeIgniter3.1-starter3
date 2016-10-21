@@ -20,7 +20,6 @@ class Welcome extends Application
 	public function index()
 	{
 		$this->data['pagebody'] = 'welcome_message';
-		$this->data['pagetitle'] = 'Ivelin and Derek';
 
 		$result = '';
 		$oddrow = true;
@@ -31,16 +30,6 @@ class Welcome extends Application
 		}
     $this->data['content'] = $result;
 
-		$this->render(); 
+		$this->render();
 	}
-
-	function render($template = 'template')
-	{
-		$this->data['navbar'] = $this->parser->parse('navbar', $this->data, true);
-    // use layout content if provided
-		if (!isset($this->data['content']))
-			$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
-		$this->parser->parse($template, $this->data);
-	}
-
 }
