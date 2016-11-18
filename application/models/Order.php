@@ -40,6 +40,7 @@ class Order extends CI_Model {
 		$result = $this->data['pagetitle'] . '  ' . PHP_EOL;
 		$result .= date(DATE_ATOM) . PHP_EOL;
 		$result .= PHP_EOL . 'Your Order:'. PHP_EOL . PHP_EOL;
+		$result .= '<h1>'.$this->number.'</h1>'. PHP_EOL;
 		foreach($this->items as $key => $value) {
 			$menu = $this->menu->get($key);
 			$result .= '- ' . $value . ' ' . $menu->name . PHP_EOL;
@@ -57,7 +58,7 @@ class Order extends CI_Model {
     // what do we have?
 		foreach($this->items as $code => $item) {
 			$menuitem = $this->menu->get($code);
-			$found[$menuitem->category] = true; 
+			$found[$menuitem->category] = true;
 		}
     // if any categories are empty, the order is not valid
 		foreach($found as $cat => $ok)
@@ -91,5 +92,14 @@ class Order extends CI_Model {
 
     // save it
 		$xml->asXML('../data/order' . $this->number . '.xml');
+	}
+
+	public function total() {
+	    $total = 0;
+	    foreach($this->items as $key => $value) {
+	        $menu = $this->menu->get($key);
+	        $total += $value * $menu->price;
+	    }
+	    return $total;
 	}
 }
